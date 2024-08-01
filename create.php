@@ -20,7 +20,7 @@
                 <a href="" class="btn btn-info">Back</a>
             </div>
         </header>
-        <form action="" method="post">
+        <form action="process.php" method="post">
             <div class="form-element">
                 <input type="text" class="form-control my-4" name="title" placeholder="Book Title">
             </div>
