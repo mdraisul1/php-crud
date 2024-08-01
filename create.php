@@ -20,7 +20,29 @@
                 <a href="" class="btn btn-info">Back</a>
             </div>
         </header>
-        
+        <form action="" method="post">
+            <div class="form-element">
+                <input type="text" class="form-control my-4" name="title" placeholder="Book Title">
+            </div>
+            <div class="form-element">
+                <input type="text" class="form-control my-4" name="Author" placeholder="Author Name">
+            </div>
+            <div class="form-element my-4">
+                <select name="type" id="type">
+                    <option value="">Select Book Type</option>
+                    <option value="fiction">Fiction</option>
+                    <option value="programming">Programming</option>
+                    <option value="cooking">Cooking</option>
+                    <option value="history">History</option>
+                </select>
+            </div>
+            <div class="form-element my-4">
+                <input type="text" class="form-control" name="description" placeholder="Book Description">
+            </div>
+            <div class="form-element">
+                <input type="submit" class="btn btn-success" name="submit" value="Add Book">
+            </div>
+        </form>
     </div>
 </body>
 </html>
