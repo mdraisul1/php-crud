@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +11,14 @@
     <!-- Page Title -->
     <title>Book Details</title>
 </head>
+
 <body>
-    
+    <div class="container">
+        <header class="d-flex justify-content-between my-4">
+            <h1>Book Details</h1>
+            <a href="index.php" class="btn btn-primary">Back</a>
+        </header>
+    </div>
 </body>
+
 </html>
