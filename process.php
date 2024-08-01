@@ -11,6 +11,12 @@ if(isset($_POST['submit'])){
 
     //sql query
     $sql = "INSERT INTO users(title, author, type, description) VALUES('$title', '$author', '$type', '$description')";
-
+    //execute query
+    $result = mysqli_query($conn, $sql);
+    if($result){
+        echo "Data inserted successfully";
+    }else{
+        echo "Failed to insert data";
+    }
 }
 

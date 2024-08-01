@@ -25,7 +25,7 @@
                 <input type="text" class="form-control my-4" name="title" placeholder="Book Title">
             </div>
             <div class="form-element">
-                <input type="text" class="form-control my-4" name="Author" placeholder="Author Name">
+                <input type="text" class="form-control my-4" name="author" placeholder="Author Name">
             </div>
             <div class="form-element my-4">
                 <select name="type" id="type">
