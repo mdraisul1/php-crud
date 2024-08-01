@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <!-- Required meta tags -->
     <meta charset="UTF-8">
@@ -12,6 +13,7 @@
     <!-- Page Title -->
     <title>Edit Book</title>
 </head>
+
 <body>
     <div class="container">
         <header class="d-flex justify-content-between my-4">
@@ -23,44 +25,46 @@
 
         <?php
 
-            if(isset($_GET['id'])) {
-                $id = $_GET['id'];
-                include 'connect.php';
-                $sql = "SELECT * FROM books WHERE id = $id";
-                $result = mysqli_query($conn, $sql);
-                $row = mysqli_fetch_array($result);
+        if (isset($_GET['id'])) {
+            $id = $_GET['id'];
+            include 'connect.php';
+            $sql = "SELECT * FROM users WHERE id = $id";
+            $result = mysqli_query($conn, $sql);
+            $row = mysqli_fetch_array($result);
 
-                //Form for editing book
-                ?>
-                    
-                <?php
-            }
+            //Form for editing book
+        ?>
+            <form action="process.php" method="post">
+                <div class="form-element">
+                    <input type="text" class="form-control my-4" name="title" value="<?php $row['title'] ?>" placeholder="Book Title">
+                </div>
+                <div class="form-element">
+                    <input type="text" class="form-control my-4" name="author" value="<?php $row['author'] ?>" placeholder="Author Name">
+                </div>
+                <div class="form-element my-4">
+                    <select name="type" id="type">
+                        <option value="">Select Book Type</option>
+                        <option value="fiction" <?php if ($row['type'] == 'fiction') {echo 'selected';} ?>>Fiction</option>
+                        <option value="programming" <?php if ($row['type'] == 'programming') {echo 'selected';} ?>>Programming</option>
+                        <option value="cooking" <?php if ($row['type'] == 'cooking') {echo 'selected';} ?>>Cooking</option>
+                        <option value="history" <?php if ($row['type'] == 'history') {echo 'selected';} ?>>History</option>
+                    </select>
+                </div>
+                <div class="form-element my-4">
+                    <textarea name="description" class="form-control" id="description" cols="100" rows="" placeholder="Book Description"></textarea>
+                </div>
+                <input type="hidden" name="id" value="<?php echo $id; ?>">
+                <div class="form-element">
+                    <input type="submit" class="btn btn-success" name="edit" value="Update Book">
+                </div>
+            </form>
+        <?php
+        }else{
+            echo "No ID Found";
+        }
 
         ?>
-
-        <form action="process.php" method="post">
-            <div class="form-element">
-                <input type="text" class="form-control my-4" name="title" placeholder="Book Title">
-            </div>
-            <div class="form-element">
-                <input type="text" class="form-control my-4" name="author" placeholder="Author Name">
-            </div>
-            <div class="form-element my-4">
-                <select name="type" id="type">
-                    <option value="">Select Book Type</option>
-                    <option value="fiction">Fiction</option>
-                    <option value="programming">Programming</option>
-                    <option value="cooking">Cooking</option>
-                    <option value="history">History</option>
-                </select>
-            </div>
-            <div class="form-element my-4">
-                <input type="text" class="form-control" name="description" placeholder="Book Description">
-            </div>
-            <div class="form-element">
-                <input type="submit" class="btn btn-success" name="submit" value="Add Book">
-            </div>
-        </form>
     </div>
 </body>
+
 </html>
