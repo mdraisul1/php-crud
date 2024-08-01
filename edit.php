@@ -10,16 +10,34 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
     <!-- Page Title -->
-    <title>Add New Book</title>
+    <title>Edit Book</title>
 </head>
 <body>
     <div class="container">
         <header class="d-flex justify-content-between my-4">
-            <h1>Add New Book</h1>
+            <h1>Edit Book</h1>
             <div>
                 <a href="index.php" class="btn btn-info">Back</a>
             </div>
         </header>
+
+        <?php
+
+            if(isset($_GET['id'])) {
+                $id = $_GET['id'];
+                include 'connect.php';
+                $sql = "SELECT * FROM books WHERE id = $id";
+                $result = mysqli_query($conn, $sql);
+                $row = mysqli_fetch_array($result);
+
+                //Form for editing book
+                ?>
+                    
+                <?php
+            }
+
+        ?>
+
         <form action="process.php" method="post">
             <div class="form-element">
                 <input type="text" class="form-control my-4" name="title" placeholder="Book Title">
