@@ -61,7 +61,7 @@
                         <td>
                             <a href="view.php?id=<?php echo $row['id']; ?>" class="btn btn-primary">Read More</a>
                             <a href="edit.php?id=<?php echo $row['id']; ?>" class="btn btn-success">Edit</a>
-                            <a href="delete.php" class="btn btn-danger">Delete</a>
+                            <a href="deleted.php?id=<?php echo $row['id']; ?>" class="btn btn-danger">Delete</a>
                         </td>
                     </tr>
                 <?php
