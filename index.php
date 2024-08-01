@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <!-- Required meta tags -->
     <meta charset="UTF-8">
@@ -11,12 +12,64 @@
     <!-- Page Title -->
     <title>Book List</title>
 </head>
+
 <body>
     <div class="container">
         <header class="d-flex justify-content-between my-4">
             <h1>Book List</h1>
             <a href="create.php" class="btn btn-primary">Add New Book</a>
         </header>
+
+        <!-- Book List table-->
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Type</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                // Connect to the database
+                include 'connect.php';
+
+                // Query the database
+                $sql = "SELECT * FROM users";
+                $result = mysqli_query($conn, $sql);
+                // $row = mysqli_fetch_array($result);
+
+                //print the data
+                // echo "<pre>";
+                // print_r($row);
+                // echo "</pre>";
+
+                // Check if there are any results
+                // if ($result && mysqli_num_rows($result) > 0) {
+
+                // Loop through the results
+                while ($row = mysqli_fetch_array($result)) {
+                ?>
+                    <tr>
+                        <td><?= $row['id'] ?></td>
+                        <td><?= $row['title'] ?></td>
+                        <td><?= $row['author'] ?></td>
+                        <td><?= $row['type'] ?></td>
+
+                        <td>
+                            <button class="btn btn-primary">Read More</button>
+                            <button class="btn btn-success">Edit</button>
+                            <button class="btn btn-danger">Delete</button>
+                        </td>
+                    </tr>
+                <?php
+                }
+                ?>
+            </tbody>
+        </table>
     </div>
 </body>
+
 </html>
