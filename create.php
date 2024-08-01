@@ -14,7 +14,13 @@
 </head>
 <body>
     <div class="container">
-       
+        <header class="d-flex justify-content-between my-4">
+            <h1>Add New Book</h1>
+            <div>
+                <a href="" class="btn btn-info">Back</a>
+            </div>
+        </header>
+        
     </div>
 </body>
 </html>
